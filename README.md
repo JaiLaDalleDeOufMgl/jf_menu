@@ -29,8 +29,6 @@ xMenu is a library written for FiveM and only uses NUI functionalities. This lib
 - StatisticPanel
 - Heritage System
 
-Got it! Let's adjust the documentation accordingly:
-
 ## Documentation
 
 #### Create a new menu
