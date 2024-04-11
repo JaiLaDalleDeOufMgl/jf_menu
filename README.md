@@ -36,7 +36,7 @@ Got it! Let's adjust the documentation accordingly:
 #### Create a new menu
 
 ```lua
-local main = xmenu.create("This is a Title", { subtitle = "cocou", description = "This is a description", banner = "Your banner url" })
+local main = xmenu.create("This is a Title", { subtitle = "This is a subtitle", description = "This is a description", banner = "Your banner url" })
 ```
 
 | Parameter    | Type       | Description                            |
