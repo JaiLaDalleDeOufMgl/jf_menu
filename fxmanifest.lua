@@ -16,8 +16,6 @@ author '(! J\'ai Faim) (Treifaa)'
 contact 'https://discord.gg/kzusScAkXM'
 url 'https://github.com/JaiLaDalleDeOufMgl/xmenu'
 
---ui_page "http://localhost:5173/"
-
 ui_page "src/web/dist/index.html"
 
 files {
