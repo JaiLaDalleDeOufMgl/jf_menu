@@ -12,18 +12,23 @@ xMenu is a library written for FiveM and only uses NUI functionalities. This lib
 ## Features
 
 - Simple button
+- Simple separator
 - Simple checkbox
 - Simple slider
 
+## Theme list preview
+
+- [Default](https://cdn.discordapp.com/attachments/1227017307998388254/1229105354751606854/image.png?ex=662e7890&is=661c0390&hm=c3e53c9405e0f6b2b698b2daa36cb9d81b0c6e41bbe32ca6027a0110864416cf&) (Rework SOON)
+- RageUI (SOON)
+
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+- [MIT](https://choosealicense.com/licenses/mit/)
 
 
 ## Roadmap
 
 - List
-- Separator
 - BoutonPanel
 - ColorPanel
 - StatisticPanel
@@ -36,15 +41,17 @@ Got it! Let's adjust the documentation accordingly:
 #### Create a new menu
 
 ```lua
-local main = xmenu.create("This is a Title", { subtitle = "This is a subtitle", description = "This is a description", banner = "Your banner url" })
+local main = xmenu.create("default", "This is a Title", { subtitle = "This is a Subtitle", description = "This is a description", itemsPerPage = 10})
 ```
 
 | Parameter    | Type       | Description                            |
 | :------------| :--------- | :------------------------------------- |
+| `theme`      | `string`   | **Required**. Theme of the menu.       |
 | `title`      | `string`   | **Required**. Title of the menu.      |
 | `subtitle`   | `string`   | Optional subtitle of the menu.        |
 | `description`| `string`   | Optional description of the menu.     |
 | `banner`     | `string`   | Optional banner URL for the menu.     |
+| `itemsPerPage`| `number`  | Optional number of items per page.    |
 
 #### Render the menu
 
@@ -59,7 +66,7 @@ end)
 #### Add a button to the menu
 
 ```lua
-addButton("Label", { rightLabel = "Test Right Label" }, {
+addButton("Button", { rightLabel = "Test Right Label", description = "The best description button" }, {
     onSelected = function()
         print("selected")
     end,
@@ -78,10 +85,20 @@ addButton("Label", { rightLabel = "Test Right Label" }, {
 | `style`     | `table`    | Optional style of the button.            |
 | `action`    | `function` | Actions triggered when selected, hovered, or active. |
 
+#### Add a separator to the menu
+
+```lua
+addSeparator("Separator")
+```
+
+| Parameter   | Type       | Description                              |
+| :-----------| :--------- | :--------------------------------------- |
+| `label`     | `string`   | Text displayed on the button.            |
+
 #### Add a checkbox to the menu
 
 ```lua
-addCheckbox("Label", check, {}, {
+addCheckbox("Checkbox", check, { description = "The best description checkbox" }, {
     onChange = function(state)
         print(state)
     end
@@ -98,7 +115,7 @@ addCheckbox("Label", check, {}, {
 #### Add a slider to the menu
 
 ```lua
-addSlider("Label", 0, 100, slider, {
+addSlider("Slider", 0, 100, slider, {description = "The best description slider"}, {
     onChange = function(data)
         slider = data.value
         print(slider, data.value)
@@ -112,8 +129,8 @@ addSlider("Label", 0, 100, slider, {
 | `min`       | `number`   | Minimum value of the slider.             |
 | `max`       | `number`   | Maximum value of the slider.             |
 | `value`     | `number`   | Initial value of the slider.             |
+| `style`     | `table`    | Optional style of the slider.           |
 | `action`    | `function` | Actions triggered when the value changes.|
-
 
 ## Feedback
 

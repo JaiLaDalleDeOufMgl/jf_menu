@@ -3,20 +3,19 @@
 -- License: MIT https://choosealicense.com/licenses/mit/
 -- Author: (! J'ai Faim) (Treifaa)
 -- Name: xMenu
--- Version: 0.0.1
+-- Version: 0.0.2
 -- Description: This library allows you to create menus in FiveM.
 ----------------------- [ xMenu ] -----------------------
 
 fx_version "cerulean"
 game "gta5"
 name 'xMenu'
-version '0.0.1'
+version '0.0.2'
 description 'This library allows you to create menus in FiveM.'
 author '(! J\'ai Faim) (Treifaa)'
 contact 'https://discord.gg/kzusScAkXM'
 url 'https://github.com/JaiLaDalleDeOufMgl/xmenu'
-
---ui_page "http://localhost:5173/"
+license 'MIT'
 
 ui_page "src/web/dist/index.html"
 

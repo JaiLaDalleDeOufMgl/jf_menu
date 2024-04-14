@@ -38,10 +38,11 @@ function xmenu.update(data)
     })
 end
 
-function xmenu.create(title, style)
+function xmenu.create(theme, title, style)
     local id = xmenu.uuid()
     xmenu.cache[id] = {
         id = id,
+        theme = theme or "default",
         banner = style.banner or false,
         title = title or "",
         subtitle = style.subtitle or "",
@@ -78,6 +79,15 @@ function xmenu.render(menu, callback)
                 end)
             end
 
+            addSeparator = function(label)
+                local id = xmenu.uuid()
+                table.insert(xmenu.cache[menu.id].items, {
+                    type = "separator",
+                    id = id,
+                    label = label,
+                })
+            end
+
             addCheckbox = function(label, default, style, action)
                 local id = xmenu.uuid()
                 table.insert(xmenu.cache[menu.id].items, {
@@ -92,7 +102,7 @@ function xmenu.render(menu, callback)
                 end)
             end
 
-            addSlider = function(label, min, max, value, action)
+            addSlider = function(label, min, max, value, style, action)
                 local id = xmenu.uuid()
                 table.insert(xmenu.cache[menu.id].items, {
                     type = "slider",
@@ -100,6 +110,7 @@ function xmenu.render(menu, callback)
                     min = min or 0,
                     max = max or 100,
                     value = value or 0,
+                    style = style or {},
                     label = label,
                 })
                 RegisterNUICallback("onChange:"..id, function(value)
@@ -130,6 +141,7 @@ function xmenu.render(menu, callback)
             xmenu.update({
                 id = menu.id,
                 banner = xmenu.cache[menu.id].banner,
+                theme = xmenu.cache[menu.id].theme,
                 title = xmenu.cache[menu.id].title,
                 subtitle = xmenu.cache[menu.id].subtitle,
                 description = xmenu.cache[menu.id].description,
