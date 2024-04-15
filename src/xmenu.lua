@@ -118,6 +118,10 @@ function xmenu.render(menu, callback)
                 end)
             end
 
+            onClosed = function(action)
+                xmenu.cache[menu.id].onClosed = action
+            end
+
             if callback then
                 callback(xmenu.cache)
             end
@@ -147,18 +151,23 @@ function xmenu.render(menu, callback)
                 description = xmenu.cache[menu.id].description,
                 item = xmenu.cache[menu.id].items
             })
-            Wait(100)
+            Wait(115)
         end
     end)
 
     function xmenu.close(id)
-        xmenu.cache[id].active = false
-        xmenu.state(false)
-        for k, v in pairs(xmenu.cache[menu.id].items) do
-            UnregisterRawNuiCallback('onSelected:' .. v.id)
-            UnregisterRawNuiCallback('onHovered:' .. v.id)
-            UnregisterRawNuiCallback('onActive:' .. v.id)
-            UnregisterRawNuiCallback('onChange:' .. v.id)
+        if xmenu.cache[id] and xmenu.cache[id].active then
+            xmenu.cache[id].active = false
+            xmenu.state(false)
+            for k, v in pairs(xmenu.cache[menu.id].items) do
+                UnregisterRawNuiCallback('onSelected:' .. v.id)
+                UnregisterRawNuiCallback('onHovered:' .. v.id)
+                UnregisterRawNuiCallback('onActive:' .. v.id)
+                UnregisterRawNuiCallback('onChange:' .. v.id)
+            end
+            if xmenu.cache[id].onClosed then
+                xmenu.cache[id].onClosed()
+            end
         end
     end
 

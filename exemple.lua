@@ -1,10 +1,11 @@
 local check = false
 local slider = 0
 
-local main = xmenu.create("default", "This is a Title", { subtitle = "This is a Subtitle", description = "This is a description", itemsPerPage = 10})
+local mainmenu = xmenu.create("default", "This is a Title", { subtitle = "This is a Subtitle", description = "This is a description", itemsPerPage = 10 })
+local mainmenu_submenu = xmenu.create("default", "This is a submenu", { subtitle = "This is a Subtitle", description = "This is a description", itemsPerPage = 10 })
 
-RegisterCommand('xmenu', function()
-    xmenu.render(main, function()
+function main()
+    xmenu.render(mainmenu, function()
         addButton("Button", { rightLabel = "Test Right Label", description = "The best description button" }, {
             onSelected = function()
                 print("selected")
@@ -19,6 +20,7 @@ RegisterCommand('xmenu', function()
         addSeparator("Separator")
         addCheckbox("Checkbox", check, { description = "The best description checkbox" }, {
             onChange = function(state)
+                check = state
                 print(state)
             end
         })
@@ -28,5 +30,31 @@ RegisterCommand('xmenu', function()
                 print(slider, data.value)
             end
         })
+        addButton("SubMenu", { rightLabel = "Test Right Label", description = "The best description button" }, {
+            onSelected = function()
+                xmenu.close(mainmenu.id)
+                submenu()
+            end
+        })
+        onClosed(function()
+            print("closed")
+        end)
     end)
+end
+
+function submenu()
+    xmenu.render(mainmenu_submenu, function()
+        addButton("Sub Button", { rightLabel = "Test Right Label", description = "The best description button" }, {})
+        addSeparator("Sub Separator")
+        addCheckbox("Sub Checkbox", check, { description = "The best description checkbox" }, {})
+        onClosed(function()
+            print("closed")
+            xmenu.close(mainmenu_submenu.id)
+            main()
+        end)
+    end)
+end
+
+RegisterCommand('xmenu', function()
+    main()
 end)

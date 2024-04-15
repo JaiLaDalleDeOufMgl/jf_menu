@@ -19,12 +19,10 @@ xMenu is a library written for FiveM and only uses NUI functionalities. This lib
 ## Theme list preview
 
 - [Default](https://cdn.discordapp.com/attachments/1227017307998388254/1229105354751606854/image.png?ex=662e7890&is=661c0390&hm=c3e53c9405e0f6b2b698b2daa36cb9d81b0c6e41bbe32ca6027a0110864416cf&) (Rework SOON)
-- RageUI (SOON)
 
 ## License
 
 - [MIT](https://choosealicense.com/licenses/mit/)
-
 
 ## Roadmap
 
@@ -33,6 +31,10 @@ xMenu is a library written for FiveM and only uses NUI functionalities. This lib
 - ColorPanel
 - StatisticPanel
 - Heritage System
+- New input system
+- Theme RageUI
+- Theme Sensity
+- Rework default theme
 
 ## Documentation
 
@@ -129,6 +131,28 @@ addSlider("Slider", 0, 100, slider, {description = "The best description slider"
 | `value`     | `number`   | Initial value of the slider.             |
 | `style`     | `table`    | Optional style of the slider.           |
 | `action`    | `function` | Actions triggered when the value changes.|
+
+#### Add action on close
+
+```lua
+onClose(function()
+    print("Menu closed")
+end)
+```
+
+| Parameter   | Type       | Description                              |
+| :-----------| :--------- | :--------------------------------------- |
+| `action`    | `function` | Actions triggered when the menu closes.  |
+
+#### Add function to close menu
+
+```lua
+xmenu.close(main.id)
+```
+
+| Parameter | Type       | Description                              |
+|:----------| :--------- | :--------------------------------------- |
+| `id`      | `string`   | ID of the menu to close.                 |
 
 ## Feedback
 
