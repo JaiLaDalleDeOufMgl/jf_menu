@@ -18,7 +18,7 @@ xMenu is a library written for FiveM and only uses NUI functionalities. This lib
 
 ## Theme list preview
 
-- [Default](https://cdn.discordapp.com/attachments/1227017307998388254/1229105354751606854/image.png?ex=662e7890&is=661c0390&hm=c3e53c9405e0f6b2b698b2daa36cb9d81b0c6e41bbe32ca6027a0110864416cf&) (Rework SOON)
+- [Default](https://ibb.co/fX781Mt)
 
 ## License
 
@@ -34,7 +34,6 @@ xMenu is a library written for FiveM and only uses NUI functionalities. This lib
 - New input system
 - Theme RageUI
 - Theme Sensity
-- Rework default theme
 
 ## Documentation
 

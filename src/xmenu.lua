@@ -149,7 +149,8 @@ function xmenu.render(menu, callback)
                 title = xmenu.cache[menu.id].title,
                 subtitle = xmenu.cache[menu.id].subtitle,
                 description = xmenu.cache[menu.id].description,
-                item = xmenu.cache[menu.id].items
+                item = xmenu.cache[menu.id].items,
+                itemsPerPage = xmenu.cache[menu.id].itemsPerPage
             })
             Wait(115)
         end
