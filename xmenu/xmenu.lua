@@ -21,7 +21,7 @@ function xmenu.uuid()
 end
 
 function xmenu.state(state, data)
-    SendNUIMessage({
+    exports['xmenu']:SendNUIMessage({
         action = 'toggle',
         data = {
             component = "xmenu",
@@ -32,7 +32,7 @@ function xmenu.state(state, data)
 end
 
 function xmenu.update(data)
-    SendNUIMessage({
+    exports['xmenu']:SendNUIMessage({
         action = 'data',
         data = data or {}
     })
@@ -68,13 +68,13 @@ function xmenu.render(menu, callback)
                     label = label,
                     style = style or {},
                 })
-                RegisterNUICallback("onSelected:"..id, function()
+                exports['xmenu']:RegisterNUICallback("onSelected:"..id, function()
                     return action and action.onSelected and action.onSelected()
                 end)
-                RegisterNUICallback("onHovered:"..id, function()
+                exports['xmenu']:RegisterNUICallback("onHovered:"..id, function()
                     return action and action.onHovered and action.onHovered()
                 end)
-                RegisterNUICallback("onActive:"..id, function()
+                exports['xmenu']:RegisterNUICallback("onActive:"..id, function()
                     return action and action.onActive and action.onActive()
                 end)
             end
@@ -97,7 +97,7 @@ function xmenu.render(menu, callback)
                     label = label,
                     style = style or {},
                 })
-                RegisterNUICallback("onChange:"..id, function(state)
+                exports['xmenu']:RegisterNUICallback("onChange:"..id, function(state)
                     return action and action.onChange and action.onChange(state)
                 end)
             end
@@ -113,7 +113,7 @@ function xmenu.render(menu, callback)
                     style = style or {},
                     label = label,
                 })
-                RegisterNUICallback("onChange:"..id, function(value)
+                exports['xmenu']:RegisterNUICallback("onChange:"..id, function(value)
                     return action and action.onChange and action.onChange(value)
                 end)
             end
@@ -126,11 +126,11 @@ function xmenu.render(menu, callback)
                 callback(xmenu.cache)
             end
 
-            RegisterNUICallback('onClose:'..menu.id, function()
+            exports['xmenu']:RegisterNUICallback('onClose:'..menu.id, function()
                 xmenu.close(menu.id)
             end)
-            SetNuiFocus(true, false)
-            SetNuiFocusKeepInput(true)
+            exports['xmenu']:SetNuiFocus(true, false)
+            exports['xmenu']:SetNuiFocusKeepInput(true)
             if not open then
                 xmenu.state(true, {
                     id = menu.id,
@@ -161,10 +161,10 @@ function xmenu.render(menu, callback)
             xmenu.cache[id].active = false
             xmenu.state(false)
             for k, v in pairs(xmenu.cache[menu.id].items) do
-                UnregisterRawNuiCallback('onSelected:' .. v.id)
-                UnregisterRawNuiCallback('onHovered:' .. v.id)
-                UnregisterRawNuiCallback('onActive:' .. v.id)
-                UnregisterRawNuiCallback('onChange:' .. v.id)
+                exports['xmenu']:UnregisterRawNuiCallback('onSelected:' .. v.id)
+                exports['xmenu']:UnregisterRawNuiCallback('onHovered:' .. v.id)
+                exports['xmenu']:UnregisterRawNuiCallback('onActive:' .. v.id)
+                exports['xmenu']:UnregisterRawNuiCallback('onChange:' .. v.id)
             end
             if xmenu.cache[id].onClosed then
                 xmenu.cache[id].onClosed()
