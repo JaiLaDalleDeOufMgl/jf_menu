@@ -47,6 +47,7 @@ function xmenu.create(theme, title, style)
         title = title or "",
         subtitle = style.subtitle or "",
         description = style.description or "",
+        itemsPerPage = style.itemsPerPage or 10,
         active = false,
     }
     return xmenu.cache[id]
@@ -138,10 +139,12 @@ function xmenu.render(menu, callback)
                 xmenu.state(true, {
                     id = menu.id,
                     banner = xmenu.cache[menu.id].banner,
+                    theme = xmenu.cache[menu.id].theme,
                     title = xmenu.cache[menu.id].title,
                     subtitle = xmenu.cache[menu.id].subtitle,
                     description = xmenu.cache[menu.id].description,
-                    item = xmenu.cache[menu.id].items
+                    item = xmenu.cache[menu.id].items,
+                    itemsPerPage = xmenu.cache[menu.id].itemsPerPage
                 })
                 open = true
             end
