@@ -15,7 +15,7 @@ xMenu is a library written for FiveM and only uses NUI functionalities. This lib
 
 ## Theme list preview
 
-- [Default](https://ibb.co/r0RbSHx)
+- [Default](https://ibb.co/nPKCfLY)
 - [Sensity](https://ibb.co/0M4jr86)
 - [RageUI](https://ibb.co/r0RbSHx)
 
