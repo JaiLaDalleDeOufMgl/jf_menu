@@ -1,4 +1,3 @@
-
 # xMenu
 
 xMenu is a library written for FiveM and only uses NUI functionalities. This library allows you to create menus in FiveM. This project is open-source and you must respect the license and the hard work.
@@ -6,8 +5,6 @@ xMenu is a library written for FiveM and only uses NUI functionalities. This lib
 ## Authors
 
 - [@! J'ai Faim](https://github.com/jaiLaDalleDeOufMgl/)
-- [@Treifaa](https://github.com/Treifaa)
-
 
 ## Features
 
@@ -18,7 +15,9 @@ xMenu is a library written for FiveM and only uses NUI functionalities. This lib
 
 ## Theme list preview
 
-- [Default](https://ibb.co/fX781Mt)
+- [Default](https://ibb.co/r0RbSHx)
+- [Sensity](https://ibb.co/0M4jr86)
+- [RageUI](https://ibb.co/r0RbSHx)
 
 ## License
 
@@ -32,8 +31,6 @@ xMenu is a library written for FiveM and only uses NUI functionalities. This lib
 - StatisticPanel
 - Heritage System
 - New input system
-- Theme RageUI
-- Theme Sensity
 
 ## Documentation
 

@@ -55,6 +55,9 @@ end
 function xmenu.render(menu, callback)
     local open = false
     CreateThread(function()
+        if xmenu.cache[menu.id].active then
+            return
+        end
         xmenu.cache[menu.id].active = true
         while xmenu.cache[menu.id].active do
 
@@ -160,6 +163,8 @@ function xmenu.render(menu, callback)
         if xmenu.cache[id] and xmenu.cache[id].active then
             xmenu.cache[id].active = false
             xmenu.state(false)
+            exports['xmenu']:SetNuiFocus(false, false)
+            exports['xmenu']:SetNuiFocusKeepInput(false)
             for k, v in pairs(xmenu.cache[menu.id].items) do
                 exports['xmenu']:UnregisterRawNuiCallback('onSelected:' .. v.id)
                 exports['xmenu']:UnregisterRawNuiCallback('onHovered:' .. v.id)
@@ -171,5 +176,5 @@ function xmenu.render(menu, callback)
             end
         end
     end
-
+    
 end
