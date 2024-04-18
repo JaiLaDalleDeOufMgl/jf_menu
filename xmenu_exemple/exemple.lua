@@ -30,6 +30,15 @@ function main()
                 print(slider, data.value)
             end
         })
+        addLine()
+        addList("List", {'index1', 'index2', 'index3'}, { description = "The best description list" }, {
+            onSelected = function(index)
+                print(index)
+            end,
+            onChange = function(index)
+                print(index)
+            end
+        })
         addButton("SubMenu", { rightLabel = "Test Right Label", description = "The best description button" }, {
             onSelected = function()
                 xmenu.close(mainmenu.id)

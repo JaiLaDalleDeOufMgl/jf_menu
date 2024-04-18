@@ -92,6 +92,14 @@ function xmenu.render(menu, callback)
                 })
             end
 
+            addLine = function()
+                local id = xmenu.uuid()
+                table.insert(xmenu.cache[menu.id].items, {
+                    type = "line",
+                    id = id,
+                })
+            end
+
             addCheckbox = function(label, default, style, action)
                 local id = xmenu.uuid()
                 table.insert(xmenu.cache[menu.id].items, {
@@ -117,6 +125,23 @@ function xmenu.render(menu, callback)
                     style = style or {},
                     label = label,
                 })
+                exports['xmenu']:RegisterNUICallback("onChange:"..id, function(value)
+                    return action and action.onChange and action.onChange(value)
+                end)
+            end
+
+            addList = function(label, value, style, action)
+                local id = xmenu.uuid()
+                table.insert(xmenu.cache[menu.id].items, {
+                    type = "list",
+                    id = id,
+                    value = value or {},
+                    style = style or {},
+                    label = label,
+                })
+                exports['xmenu']:RegisterNUICallback("onSelected:"..id, function(value)
+                    return action and action.onSelected and action.onSelected(value)
+                end)
                 exports['xmenu']:RegisterNUICallback("onChange:"..id, function(value)
                     return action and action.onChange and action.onChange(value)
                 end)
@@ -179,5 +204,5 @@ function xmenu.render(menu, callback)
             end
         end
     end
-    
+
 end

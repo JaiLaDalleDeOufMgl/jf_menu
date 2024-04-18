@@ -91,6 +91,12 @@ addSeparator("Separator")
 | :-----------| :--------- | :--------------------------------------- |
 | `label`     | `string`   | Text displayed on the button.            |
 
+#### Add a line to the menu
+
+```lua
+addLine()
+```
+
 #### Add a checkbox to the menu
 
 ```lua
@@ -127,6 +133,26 @@ addSlider("Slider", 0, 100, slider, {description = "The best description slider"
 | `value`     | `number`   | Initial value of the slider.             |
 | `style`     | `table`    | Optional style of the slider.           |
 | `action`    | `function` | Actions triggered when the value changes.|
+
+#### Add a list to the menu
+
+```lua
+addList("List", {'index1', 'index2', 'index3'}, { description = "The best description list" }, {
+    onSelected = function(index)
+        print(index)
+    end,
+    onChange = function(index)
+        print(index)
+    end
+})
+```
+
+| Parameter   | Type       | Description                              |
+| :-----------| :--------- | :--------------------------------------- |
+| `label`     | `string`   | Text displayed next to the list.         |
+| `items`     | `table`    | List of items in the list.               |
+| `style`     | `table`    | Optional style of the list.              |
+| `action`    | `function` | Actions triggered when an item is selected or the value changes.|
 
 #### Add action on close
 
