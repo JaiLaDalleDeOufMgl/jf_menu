@@ -6,7 +6,7 @@ local mainmenu_submenu = xmenu.create("default", "This is a submenu", { subtitle
 
 function main()
     xmenu.render(mainmenu, function()
-        addButton("Button", { rightLabel = "Test Right Label", description = "The best description button" }, {
+        addButton("Button", { rightLabel = "Test Right Label", description = "The best description button" , panel = {title = "Panel Title", value = {{"SMG","500$"}}} }, {
             onSelected = function()
                 print("selected")
             end,

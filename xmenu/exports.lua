@@ -17,3 +17,8 @@ end)
 exports('SetNuiFocusKeepInput', function(hasFocus)
     SetNuiFocusKeepInput(hasFocus)
 end)
+
+exports('getState', function(hasFocus)
+    SetNuiFocusKeepInput(hasFocus)
+end)
+

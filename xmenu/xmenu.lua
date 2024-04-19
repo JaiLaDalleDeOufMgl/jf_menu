@@ -1,5 +1,6 @@
 xmenu = {}
 xmenu.cache = {}
+xmenu.status = false
 
 function xmenu.uuid()
     local uuid = ''
@@ -29,6 +30,7 @@ function xmenu.state(state, data)
             data = data or {}
         }
     })
+    xmenu.status = state
 end
 
 function xmenu.update(data)
@@ -204,5 +206,8 @@ function xmenu.render(menu, callback)
             end
         end
     end
+end
 
+function xmenu.getState()
+    return xmenu.status
 end

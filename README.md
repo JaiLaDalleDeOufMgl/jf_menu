@@ -176,12 +176,21 @@ xmenu.close(main.id)
 |:----------| :--------- | :--------------------------------------- |
 | `id`      | `string`   | ID of the menu to close.                 |
 
+#### use this function to get state of the menu
+
+```lua
+xmenu.getState()
+```
+| Return | Type       | Description                              |
+|:-------| :--------- | :--------------------------------------- |
+| `bool` | `boolean`  | Return true if a menu is open.           |
+
 ## Feedback
 
-If you have any feedback, please reach out to us at [Discord](https://discord.gg/kzusScAkXM)
+If you have any feedback, please reach out to us at [Discord](https://discord.gg/jaifaim)
 
 
 ## Support
 
-For support, join our [Discord](https://discord.gg/kzusScAkXM).
+For support, join our [Discord](https://discord.gg/jaifaim).
 
