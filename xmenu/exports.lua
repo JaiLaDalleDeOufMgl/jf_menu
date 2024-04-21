@@ -1,5 +1,12 @@
-cache = {}
 status = false
+
+exports('getState', function()
+    return status
+end)
+
+exports('setState', function(state)
+    status = state
+end)
 
 exports('SendNUIMessage', function(input)
     SendNUIMessage(input)
