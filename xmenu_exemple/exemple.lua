@@ -6,7 +6,7 @@ local mainmenu_submenu = xmenu.create("default", "This is a submenu", { subtitle
 
 function main()
     xmenu.render(mainmenu, function()
-        addButton("Button", { rightLabel = "Test Right Label", description = "The best description button" , panel = {title = "Panel Title", value = {{"SMG","500$"}}} }, {
+        addButton("Button", { rightLabel = "Test Right Label", description = "The best description button" , panel = {title = "Panel Title", value = {{"Sultan","500$"}, {"SMG", "500$"}, {"Pistol", "500$"}}, image = "https://i.ibb.co/ZB0qzKy/Desktop-Screenshot2023-12-11-21-23-05-34.webp"}, statistics = {{"Max Speed", 75}, {"Damage", 50}, {"Range", 100}} }, {
             onSelected = function()
                 print("selected")
             end,
@@ -41,7 +41,6 @@ function main()
         })
         addButton("SubMenu", { rightLabel = "Test Right Label", description = "The best description button" }, {
             onSelected = function()
-                xmenu.close(mainmenu.id)
                 submenu()
             end
         })
@@ -58,7 +57,6 @@ function submenu()
         addCheckbox("Sub Checkbox", check, { description = "The best description checkbox" }, {})
         onClosed(function()
             print("closed")
-            xmenu.close(mainmenu_submenu.id)
             main()
         end)
     end)

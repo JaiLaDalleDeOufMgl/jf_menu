@@ -40,6 +40,12 @@ function xmenu.update(data)
     })
 end
 
+local function destroy()
+    for k,v in pairs(xmenu.cache) do
+        xmenu.close(v.id)
+    end
+end
+
 function xmenu.create(theme, title, style)
     local id = xmenu.uuid()
     xmenu.cache[id] = {
@@ -57,6 +63,11 @@ end
 
 function xmenu.render(menu, callback)
     local open = false
+
+    if xmenu.status then
+        destroy()
+    end
+
     CreateThread(function()
         if xmenu.cache[menu.id].active then
             return

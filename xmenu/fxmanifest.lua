@@ -3,14 +3,14 @@
 -- License: MIT https://choosealicense.com/licenses/mit/
 -- Author: ! J'ai Faim
 -- Name: xMenu
--- Version: 0.0.8
+-- Version: 0.0.9
 -- Description: This library allows you to create menus in FiveM.
 ----------------------- [ xMenu ] -----------------------
 
 fx_version "cerulean"
 game "gta5"
 name 'xMenu'
-version '0.0.8'
+version '0.0.9'
 description 'This library allows you to create menus in FiveM.'
 author '! J\'ai Faim'
 contact 'https://discord.gg/jaifaim'
