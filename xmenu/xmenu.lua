@@ -1,6 +1,5 @@
 xmenu = {}
 xmenu.cache = {}
-xmenu.status = false
 
 function xmenu.uuid()
     local uuid = ''
@@ -30,7 +29,7 @@ function xmenu.state(state, data)
             data = data or {}
         }
     })
-    xmenu.status = state
+    exports['xmenu']:setState(state)
 end
 
 function xmenu.update(data)
@@ -40,11 +39,11 @@ function xmenu.update(data)
     })
 end
 
-local function destroy()
+RegisterNetEvent("xmenu:destroy", function()
     for k,v in pairs(xmenu.cache) do
         xmenu.close(v.id)
     end
-end
+end)
 
 function xmenu.create(theme, title, style)
     local id = xmenu.uuid()
@@ -64,8 +63,8 @@ end
 function xmenu.render(menu, callback)
     local open = false
 
-    if xmenu.status then
-        destroy()
+    if exports['xmenu']:getState() then
+        TriggerEvent("xmenu:destroy")
     end
 
     CreateThread(function()

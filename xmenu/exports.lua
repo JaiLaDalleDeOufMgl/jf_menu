@@ -1,3 +1,6 @@
+cache = {}
+status = false
+
 exports('SendNUIMessage', function(input)
     SendNUIMessage(input)
 end)
@@ -17,8 +20,3 @@ end)
 exports('SetNuiFocusKeepInput', function(hasFocus)
     SetNuiFocusKeepInput(hasFocus)
 end)
-
-exports('getState', function(hasFocus)
-    SetNuiFocusKeepInput(hasFocus)
-end)
-
