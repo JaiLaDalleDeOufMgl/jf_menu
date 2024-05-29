@@ -22,5 +22,5 @@ If you have any feedback, please reach out to us at [Discord](https://discord.gg
 
 ## Support
 
-For support, join our [Discord](https://discord.gg/jaifaim).
+For support, join our [Discord](https://discord.gg/nhZHMjCXhc).
 
